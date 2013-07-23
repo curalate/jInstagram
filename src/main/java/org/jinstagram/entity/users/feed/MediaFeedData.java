@@ -31,7 +31,6 @@ public class MediaFeedData {
 	@SerializedName("images")
 	private Images images;
 
-
 	@SerializedName("likes")
 	private Likes likes;
 
@@ -236,8 +235,8 @@ public class MediaFeedData {
 
     @Override
     public String toString() {
-        return String.format("MediaFeedData [caption=%s, comments=%s, createdTime=%s, id=%s, imageFilter=%s, images=%s, likes=%s, link=%s, location=%s, tags=%s, type=%s, user=%s, userHasLiked=%s]",
+        return String.format("MediaFeedData [caption=%s, comments=%s, createdTime=%s, id=%s, imageFilter=%s, images=%s, likes=%s, link=%s, location=%s, tags=%s, type=%s, user=%s, userHasLiked=%s, videos=%s]",
                         caption, comments, createdTime, id, imageFilter, images, likes, link, location, tags, type,
-                        user, userHasLiked);
+                        user, userHasLiked, videos);
     }
 }

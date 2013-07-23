@@ -60,9 +60,10 @@ public class VideoData {
 		this.videoHeight = videoHeight;
 	}
 
-    @Override
-    public String toString() {
-        return String.format("VideoData [videoHeight=%s, videoUrl=%s, videoWidth=%s]",
-                videoHeight, videoUrl, videoWidth);
-    }
+	@Override
+	public String toString() {
+		return String.format(
+				"VideoData [videoHeight=%s, videoUrl=%s, videoWidth=%s]",
+				videoHeight, videoUrl, videoWidth);
+	}
 }
