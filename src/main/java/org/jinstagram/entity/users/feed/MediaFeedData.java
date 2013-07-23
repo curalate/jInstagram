@@ -8,6 +8,7 @@ import org.jinstagram.entity.common.Images;
 import org.jinstagram.entity.common.Likes;
 import org.jinstagram.entity.common.Location;
 import org.jinstagram.entity.common.User;
+import org.jinstagram.entity.common.Videos;
 
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class MediaFeedData {
 	@SerializedName("images")
 	private Images images;
 
+
 	@SerializedName("likes")
 	private Likes likes;
 
@@ -50,6 +52,9 @@ public class MediaFeedData {
 
 	@SerializedName("user_has_liked")
 	private boolean userHasLiked;
+
+	@SerializedName("videos")
+	private Videos videos;
 
 	/**
 	 * @return the location
@@ -213,6 +218,20 @@ public class MediaFeedData {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	/**
+	 * @return the videos
+	 */
+	public Videos getVideos() {
+		return videos;
+	}
+
+	/**
+	 * @param videos the videos to set
+	 */
+	public void setVideos(Videos videos) {
+		this.videos = videos;
 	}
 
     @Override
