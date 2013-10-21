@@ -544,20 +544,21 @@ public class Instagram {
 		    return object;
 		}
 
-		System.out.println("Error code: " + response.getCode()); //TODO InstagramException is not being marshalled correctly here 
-		// and is giving a null:null response. Fix this.
-		System.out.println("Error body: " + response.getBody());
 		throw handleInstagramError(response);
 	}
 
     private InstagramException handleInstagramError(Response response) throws InstagramException {
         if (response.getCode() == 400) {
 		    Gson gson = new Gson();
-		    final InstagramErrorResponse error;
+		    InstagramErrorResponse error;
 		    try {
-		        error = gson.fromJson(response.getBody(), InstagramErrorResponse.class);
-		    } catch (JsonSyntaxException e) {
-		        throw new InstagramException("Failed to decode error response " + response.getBody(), e);
+		        error = gson.fromJson(response.getBody(), InstagramMetaResponse.class).getMeta();
+		    } catch (JsonSyntaxException e1) {
+		        try {
+		            error = gson.fromJson(response.getBody(), InstagramErrorResponse.class);
+		        } catch (JsonSyntaxException e2) {
+		            throw new InstagramException("Failed to decode error response " + response.getBody(), e2);
+		        }
 		    }
 		    error.throwException();
 		}
